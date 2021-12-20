@@ -15,16 +15,14 @@ namespace btc_treasure_hunter
 
         static async Task Main(string[] args)
         {
-            while(1) {
-                Wallet wallet = new Wallet(new Key());
-                int balance = await sendRequest(wallet);
-                if(balance > 0) {
-                    Console.WriteLine("Private Key: " + wallet.private_key);
-                    Console.WriteLine("Public Key: " + wallet.public_key); 
-                    Console.WriteLine("Public Key Address: " + wallet.mainnet_address); 
-                    Console.WriteLine("Public Hash: " + wallet.public_key.Hash); 
-                    Console.WriteLine("WIF: " + wallet.wif);
-                }   
+            Wallet wallet = new Wallet(new Key());
+            int balance = await sendRequest(wallet);
+            if(balance > 0) {
+                Console.WriteLine("Private Key: " + wallet.private_key);
+                Console.WriteLine("Public Key: " + wallet.public_key); 
+                Console.WriteLine("Public Key Address: " + wallet.mainnet_address); 
+                Console.WriteLine("Public Hash: " + wallet.public_key.Hash); 
+                Console.WriteLine("WIF: " + wallet.wif);
             }
         }
 
